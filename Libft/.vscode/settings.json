@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+		"isalnum": "cpp",
+		"libft.h": "c",
+		"stdlib.h": "c",
+		"sstream": "c"
+	},
+	"makefile.configureOnOpen": false
+}
