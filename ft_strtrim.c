@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 01:17:39 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/08 01:37:43 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/08 01:54:26 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/08 02:15:51 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-int	ft_atoi(const char *nptr)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	nbr;
-	int	sign;
+	char	*str;
+	int		i;
+	int		j;
+	int		k;
 
-	nbr = 0;
-	sign = 1;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if ((*nptr == '+' || *nptr == '-'))
-		sign *= 44 - *nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
-		nbr = (nbr * 10) + ((*nptr++ - 48) * sign);
-	return (nbr);
+	k = 0;
+	i = -1;
+	while (s1[++i])
+	{
+		j = -1;
+		while (set[++j])
+			if (s1[i] == set[j])
+				k++;
+	}
+	str = (char *) malloc((i - k + 1) * sizeof(char));
+	if (!str)
+		return (0);
+	while (i - k >= 0)
+		while (set[j])
+	return (str);
 }
