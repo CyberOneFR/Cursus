@@ -6,7 +6,7 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 19:37:57 by ethebaul          #+#    #+#              #
-#    Updated: 2024/11/08 01:54:49 by ethebaul         ###   ########.fr        #
+#    Updated: 2024/11/08 04:20:06 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRCS = ft_isalnum.c \
 	ft_strdup.c \
 	ft_substr.c \
 	ft_strjoin.c \
-	ft_strtrim.c
+	ft_strtrim.c \
+	ft_split.c \
 
 OBJS = $(SRCS:.c=.o)
 
