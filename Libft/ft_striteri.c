@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 01:17:39 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/09 15:47:06 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/09 18:54:13 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/09 18:57:09 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned long long int	nbr;
-	int						sign;
+	unsigned int	i;
 
-	nbr = 0;
-	sign = 1;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if ((*nptr == '+' || *nptr == '-'))
-		sign *= 44 - *nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
-	{
-		if (nbr > 9223372036854775807)
-		{
-			if (sign == 1)
-				return (-1);
-			return (0);
-		}
-		nbr = (nbr * 10) + (*nptr++ - 48);
-	}
-	return ((int)nbr * sign);
+	i = -1;
+	while (s[++i])
+		f(i, (s + i));
 }

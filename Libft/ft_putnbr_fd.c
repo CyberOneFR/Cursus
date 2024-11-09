@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 01:17:39 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/09 15:47:06 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/09 19:16:09 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/09 19:55:22 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned long long int	nbr;
-	int						sign;
+	int	nb;
+	int	len;
+	int	i;
 
-	nbr = 0;
-	sign = 1;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if ((*nptr == '+' || *nptr == '-'))
-		sign *= 44 - *nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
+	nb = n;
+	len = 0;
+	while (nb / 10 != 0)
 	{
-		if (nbr > 9223372036854775807)
-		{
-			if (sign == 1)
-				return (-1);
-			return (0);
-		}
-		nbr = (nbr * 10) + (*nptr++ - 48);
+		nb /= 10;
+		len++;
 	}
-	return ((int)nbr * sign);
+	len++;
+	if (n < 0)
+		write(fd, "-", 1);
+	while (--len >= 0)
+	{
+		i = 0;
+		nb = n;
+		while (i++ < len)
+			nb /= 10;
+		write(fd, &"9876543210123456789"[9 + (nb % 10)], 1);
+	}
 }

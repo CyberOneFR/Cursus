@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 01:17:39 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/09 15:47:06 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/08 17:33:32 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/09 19:18:44 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+char	*ft_itoa(int n)
 {
-	unsigned long long int	nbr;
-	int						sign;
+	char	*str;
+	int		temp;
+	int		len;
 
-	nbr = 0;
-	sign = 1;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if ((*nptr == '+' || *nptr == '-'))
-		sign *= 44 - *nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
+	len = 0;
+	temp = n;
+	while (temp / 10 != 0)
 	{
-		if (nbr > 9223372036854775807)
-		{
-			if (sign == 1)
-				return (-1);
-			return (0);
-		}
-		nbr = (nbr * 10) + (*nptr++ - 48);
+		temp /= 10;
+		len++;
 	}
-	return ((int)nbr * sign);
+	len++;
+	str = (char *)malloc((len + 1 + (n < 0)) * sizeof(char));
+	if (!str)
+		return ((char *)0);
+	if (n < 0)
+		str[0] = '-';
+	str[len + (n < 0)] = '\0';
+	while (--len >= 0)
+	{
+		str[len + (n < 0)] = "9876543210123456789"[(n % 10) + 9];
+		n /= 10;
+	}
+	return (str);
 }

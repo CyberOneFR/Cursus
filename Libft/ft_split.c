@@ -6,16 +6,16 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 04:19:57 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/08 06:59:29 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/09 20:25:15 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static	int	ft_count_words(char const *s, char c);
-static	void	*ft_free_tab(char **tab, int i);
-size_t		ft_strlenc(const char *s, char c);
+static	int		ft_count_words(char const *s, char c);
+static	size_t	ft_strlenc(const char *s, char c);
+static	void		*ft_free_tab(char **tab, int i);
 
 char	**ft_split(char const *s, char c)
 {
@@ -46,7 +46,7 @@ char	**ft_split(char const *s, char c)
 	return (tab);
 }
 
-size_t	ft_strlenc(const char *s, char c)
+static size_t	ft_strlenc(const char *s, char c)
 {
 	size_t	i;
 
@@ -60,8 +60,8 @@ static	void	*ft_free_tab(char **tab, int i)
 {
 	while (i >= 0)
 	{
-		i--;
 		free(tab[i]);
+		i--;
 	}
 	free(tab);
 	return (0);
