@@ -6,82 +6,92 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 04:19:57 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 02:01:12 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 10:23:07 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 #include <stdio.h>
 
-static	int		ft_count_words(char const *s, char c);
-static	size_t	ft_strlenc(const char *s, char c);
-static	void		*ft_free_tab(char **tab, int i);
+static int	count_words(char const *s, char c)
+{
+	int	words;
+	int	i;
+
+	i = 0;
+	words = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			words++;
+			while (s[i] != c && s[i])
+				i++;
+		}
+		else
+			i++;
+	}
+	return (words);
+}
+
+static char	*get_word(char **tab, char const *s, char c)
+{
+	char	*word;
+	int		i;
+
+	i = 0;
+	while (*s == c && *s)
+		s++;
+	while (s[i] != c && s[i])
+		i++;
+	word = (char *)malloc((i + 1) * sizeof(char));
+	if (!word)
+		return (0);
+	i = 0;
+	while (s[i] != c && s[i])
+	{
+		word[i] = s[i];
+		i++;
+	}
+	word[i] = 0;
+	*tab = word;
+	return ((char *)(s + i));
+}
+
+static void	free_tab(char **tab, int i)
+{
+	while (i >= 0)
+	{
+		i--;
+		free(tab[i]);
+	}
+	free(tab);
+}
 
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
-	int		word;
+	int		words;
 	int		i;
-	int		j;
 
-	word = ft_count_words(s, c);
-	tab = (char **) malloc((word + 1) * sizeof(char *));
+	if (!s)
+		return (0);
+	words = count_words(s, c);
+	tab = malloc((words + 1) * sizeof(char *));
 	if (!tab)
 		return (0);
 	i = 0;
-	while (i < word)
+	while (i < words)
 	{
-		while (*s == c && *s)
-			s++;
-		tab[i] = (char *) malloc((ft_strlenc(s, c) + 1) * sizeof(char));
+		s = get_word(&tab[i], s, c);
 		if (!tab[i])
-			return (ft_free_tab(tab, i));
-		j = 0;
-		while (*s != c && *s)
-			tab[i][j++] = *s++;
-		tab[i][j] = 0;
+		{
+			free_tab(tab, i);
+			return (0);
+		}
 		i++;
 	}
 	tab[i] = 0;
 	return (tab);
-}
-
-static size_t	ft_strlenc(const char *s, char c)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != c && s[i])
-		i++;
-	return (i);
-}
-
-static	void	*ft_free_tab(char **tab, int i)
-{
-	while (i >= 0)
-	{
-		free(tab[i]);
-		i--;
-	}
-	free(tab);
-	return (0);
-}
-
-static	int	ft_count_words(char const *s, char c)
-{
-	int	word;
-
-	word = 0;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			word++;
-			while (*s != c && *s)
-				s++;
-		}
-		else
-			s++;
-	}
-	return (word);
 }

@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:08:49 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/07 23:26:55 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 09:19:15 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	while (n > 0)
-		((char *)s)[--n] = 0;
+	int	i;
+
+	i = 0;
+	while (i < (int)n)
+	{
+		((char *)s)[i] = 0;
+		i++;
+	}
 }

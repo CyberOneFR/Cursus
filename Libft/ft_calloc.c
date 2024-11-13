@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 13:23:06 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/06 14:43:44 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 09:11:12 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
+	int		i;
 
-	nmemb *= size;
-	ptr = malloc(nmemb);
+	i = 0;
+	ptr = malloc(nmemb * size);
 	if (ptr)
-		while (nmemb > 0)
-			*((char *)ptr - 1 + nmemb--) = 0;
-	else
-		return ((void *)0);
+	{
+		while (i < (int)(nmemb * size))
+		{
+			((char *)ptr)[i] = 0;
+			i++;
+		}
+	}
 	return (ptr);
 }

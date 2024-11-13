@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:04:12 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/06 15:08:30 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 09:18:44 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	return ((c > 47 && c < 58) || (c > 64 && c < 91) || (c > 96 && c < 123));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
