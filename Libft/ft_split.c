@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 04:19:57 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 10:23:07 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 10:44:32 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static char	*get_word(char **tab, char const *s, char c)
 	while (s[i] != c && s[i])
 		i++;
 	word = (char *)malloc((i + 1) * sizeof(char));
+	*tab = word;
 	if (!word)
 		return (0);
 	i = 0;
@@ -55,7 +56,6 @@ static char	*get_word(char **tab, char const *s, char c)
 		i++;
 	}
 	word[i] = 0;
-	*tab = word;
 	return ((char *)(s + i));
 }
 
@@ -63,8 +63,8 @@ static void	free_tab(char **tab, int i)
 {
 	while (i >= 0)
 	{
-		i--;
 		free(tab[i]);
+		i--;
 	}
 	free(tab);
 }
