@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   print_screen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 01:17:39 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 02:21:18 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/13 00:58:21 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/13 06:12:32 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../exterminalib.h"
 
-int	ft_atoi(const char *nptr)
+struct winsize	w;
+char		*screen_buffer;
+t_object	*object_stack;
+
+void	print_screen(void)
 {
-	unsigned long long int	nbr;
-	int						sign;
+	t_object	*tmp;
 
-	nbr = 0;
-	sign = 1;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if ((*nptr == '+' || *nptr == '-'))
-		sign *= 44 - *nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
-		nbr = (nbr * 10) + (*nptr++ - 48);
-	return ((int)nbr * sign);
+	if (!object_stack)
+		return ;
+	tmp = object_stack;
+	while (tmp)
+	{
+		(tmp->f)(tmp->content);
+		tmp = tmp->next;
+	}
+	write(1, "\033[H\033[J", 6);
+	write(1, screen_buffer, w.ws_col * w.ws_row);
 }

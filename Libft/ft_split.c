@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 04:19:57 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/09 20:25:15 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 02:01:12 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,7 @@ static	int	ft_count_words(char const *s, char c)
 		{
 			word++;
 			while (*s != c && *s)
-			{
 				s++;
-			}
 		}
 		else
 			s++;

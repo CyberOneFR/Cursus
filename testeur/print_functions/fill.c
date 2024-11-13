@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   fill.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 01:17:39 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 02:21:18 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/13 04:02:02 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/13 06:14:36 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../exterminalib.h"
 
-int	ft_atoi(const char *nptr)
+void	fill(void *area)
 {
-	unsigned long long int	nbr;
-	int						sign;
+	int	x;
+	int	y;
 
-	nbr = 0;
-	sign = 1;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if ((*nptr == '+' || *nptr == '-'))
-		sign *= 44 - *nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
-		nbr = (nbr * 10) + (*nptr++ - 48);
-	return ((int)nbr * sign);
+	y = ((t_area *)area)->p1.y;
+	while (y < ((t_area *)area)->p2.y && y < w.ws_row)
+	{
+		x = ((t_area *)area)->p1.x;
+		while (x < ((t_area *)area)->p2.x && x < w.ws_col)
+		{
+			screen_buffer[(y * w.ws_row) + x] = ((t_area *)area)->c;
+			x++;
+		}
+		y++;
+	}
 }

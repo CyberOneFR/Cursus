@@ -3,6 +3,10 @@
 		"libft.h": "c",
 		"unistd.h": "c",
 		"wait.h": "c",
-		"cstring": "c"
+		"cstring": "c",
+		"exterminalib.h": "c",
+		"ft_handle_": "cpp",
+		"sstream": "c",
+		"random": "c"
 	}
 }

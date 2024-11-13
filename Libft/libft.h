@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:04:29 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/12 22:51:23 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 02:32:26 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
-# include <errno.h>
 
 typedef struct s_list
 {

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   test_ft_isalnum.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 01:17:39 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 02:21:18 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/12 23:20:13 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/12 23:39:36 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "exterminalib.h"
 
-int	ft_atoi(const char *nptr)
+void	test_ft_isalnum(void)
 {
-	unsigned long long int	nbr;
-	int						sign;
+	char	buffer[1024];
+	int		read_value;
+	int		value;
 
-	nbr = 0;
-	sign = 1;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if ((*nptr == '+' || *nptr == '-'))
-		sign *= 44 - *nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
-		nbr = (nbr * 10) + (*nptr++ - 48);
-	return ((int)nbr * sign);
+	printf("Enter a number to test ft_isalnum():\n");
+	read_value = read(0, buffer, 1023);
+	buffer[read_value] = 0;
+	value = atoi(buffer);
+	printf("ft_isalnum(%d) returned: %d\n", value, ft_isalnum(value));
+	printf("isalnum(%d) returned: %d\n", value, isalnum(value));
 }

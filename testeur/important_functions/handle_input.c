@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 01:17:39 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 02:21:18 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/13 01:15:44 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/13 05:48:48 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../exterminalib.h"
 
-int	ft_atoi(const char *nptr)
+void	handle_input(void)
 {
-	unsigned long long int	nbr;
-	int						sign;
+	char	buffer[1024];
+	int		read_value;
 
-	nbr = 0;
-	sign = 1;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if ((*nptr == '+' || *nptr == '-'))
-		sign *= 44 - *nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
-		nbr = (nbr * 10) + (*nptr++ - 48);
-	return ((int)nbr * sign);
+	del_part(last_part());
+	read_value = read(0, buffer, 1023);
+	if (read_value > 0)
+	{
+		buffer[read_value] = 0;
+		add_part(new_part(free_text, print_left, new_text(0, 5, ft_strdup(buffer))));
+	}
+	else if (read_value == -1)
+		garbage_collector(errno);
 }
