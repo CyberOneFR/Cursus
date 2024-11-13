@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 01:15:44 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 05:48:48 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 08:07:38 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ void	handle_input(void)
 	if (read_value > 0)
 	{
 		buffer[read_value] = 0;
-		add_part(new_part(free_text, print_left, new_text(0, 5, ft_strdup(buffer))));
+		resize_screen(0);
+		if (!strcmp(buffer, "exit"))
+		{
+			garbage_collector(0);
+			exit(0);
+		}
 	}
 	else if (read_value == -1)
 		garbage_collector(errno);

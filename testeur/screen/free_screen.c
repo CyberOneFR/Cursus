@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 01:35:59 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 05:09:26 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 08:18:34 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ void	free_screen(void)
 {
 	t_object	*tmp;
 
-	tmp = object_stack;
-	while (tmp)
+	while (object_stack)
 	{
-		tmp = tmp->next;
-		if (tmp->del)
-			tmp->del(tmp->content);
+		if (object_stack->del)
+			object_stack->del(object_stack->content);
+		tmp = object_stack;
+		object_stack = object_stack->next;
 		free(tmp);
 	}
-	free(screen_buffer);
+	if (screen_buffer)
+		free(screen_buffer);
 }

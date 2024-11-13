@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 23:39:50 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 06:26:03 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 08:26:10 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ void		resize_screen(int sig);
 
 //objects functions
 t_object	*new_part(void (*del)(void *), void (*f)(void *), void *content);
+void		replace_part(t_object *old, t_object *new);
 t_area		*new_area(t_point p1, t_point p2, char c);
 t_text		*new_text(int x, int y, char *str);
 void		add_part(t_object *part);
@@ -135,7 +136,10 @@ void		fill(void *area);
 void		blank(void);
 
 //utils functions
+char		*ft_strcat(char *str1, char *str2);
 char		*ft_strdup(const char *s);
 int			printable_len(char *str);
+char		*ft_str(char *str);
+char		*ft_itoa(int n);
 
 #endif

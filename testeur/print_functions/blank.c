@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 06:24:29 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 06:25:22 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 07:49:39 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	blank(void)
 	int	i;
 
 	i = 0;
-	while (i < w.ws_col * w.ws_row)
+	while (i < (w.ws_col * w.ws_row))
 	{
 		screen_buffer[i] = ' ';
 		i++;

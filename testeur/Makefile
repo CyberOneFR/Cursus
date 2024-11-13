@@ -6,7 +6,7 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/12 23:53:19 by ethebaul          #+#    #+#              #
-#    Updated: 2024/11/13 05:50:48 by ethebaul         ###   ########.fr        #
+#    Updated: 2024/11/13 07:42:12 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -I exterminalib.h
 SRCS = exterminalib.c \
 	important_functions/garbage_collector.c \
 	important_functions/handle_input.c \
+	objects_functions/replace_part.c \
 	objects_functions/add_part.c \
 	objects_functions/del_part.c \
 	objects_functions/free_area.c \
@@ -24,6 +25,7 @@ SRCS = exterminalib.c \
 	objects_functions/new_area.c \
 	objects_functions/new_part.c \
 	objects_functions/new_text.c \
+	print_functions/blank.c \
 	print_functions/fill.c \
 	print_functions/print_center.c \
 	print_functions/print_left.c \
@@ -31,6 +33,9 @@ SRCS = exterminalib.c \
 	screen/free_screen.c \
 	screen/print_screen.c \
 	screen/resize_screen.c \
+	utils/ft_str.c \
+	utils/ft_strcat.c \
+	utils/ft_itoa.c \
 	utils/dictionary.c \
 	utils/ft_strdup.c \
 	utils/printable_len.c \

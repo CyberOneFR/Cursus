@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 00:58:21 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 06:12:32 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/13 08:09:14 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	print_screen(void)
 		(tmp->f)(tmp->content);
 		tmp = tmp->next;
 	}
-	write(1, "\033[H\033[J", 6);
+	system("clear");
 	write(1, screen_buffer, w.ws_col * w.ws_row);
 }

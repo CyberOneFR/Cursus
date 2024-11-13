@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   resize_screen.c                                    :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 01:16:38 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 08:09:44 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/13 07:04:56 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/13 07:05:20 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../exterminalib.h"
 
-void	resize_screen(int sig)
+char	*ft_itoa(int n)
 {
-	(void)sig;
-	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
-	w.ws_row -= 1;
-	if (screen_buffer)
-		free(screen_buffer);
-	screen_buffer = malloc((w.ws_col * w.ws_row) * sizeof(char));
-	if (!screen_buffer)
-		garbage_collector(ENOMEM);
-	blank();
-	replace_part(last_part(), new_part(free_text, print_center, new_text(0, 5, ft_strcat(ft_strcat(ft_itoa(w.ws_col), ft_str(" | ")), ft_itoa(w.ws_row)))));
-	print_screen();
+	char	*str;
+	int		temp;
+	int		len;
+
+	len = 0;
+	temp = n;
+	while (temp / 10 != 0)
+	{
+		temp /= 10;
+		len++;
+	}
+	len++;
+	str = (char *)malloc((len + 1 + (n < 0)) * sizeof(char));
+	if (!str)
+		return ((char *)0);
+	if (n < 0)
+		str[0] = '-';
+	str[len + (n < 0)] = '\0';
+	while (--len >= 0)
+	{
+		str[len + (n < 0)] = "9876543210123456789"[(n % 10) + 9];
+		n /= 10;
+	}
+	return (str);
 }
