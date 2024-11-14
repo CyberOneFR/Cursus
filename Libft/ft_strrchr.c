@@ -6,11 +6,9 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 22:51:29 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/05 23:12:00 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:19:16 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

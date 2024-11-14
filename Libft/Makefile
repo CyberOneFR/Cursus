@@ -6,7 +6,7 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 19:37:57 by ethebaul          #+#    #+#              #
-#    Updated: 2024/11/12 22:40:17 by ethebaul         ###   ########.fr        #
+#    Updated: 2024/11/14 16:20:53 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,9 @@ SRCSB = ft_lstnew_bonus.c \
 OBJS = $(SRCS:.c=.o)
 OBJSB = $(SRCSB:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -I libft.h -fPIC
+INCLUDES = libft.h
+
+CFLAGS = -Wall -Wextra -Werror -fPIC
 
 CC = cc
 
@@ -70,10 +72,10 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 bonus: $(OBJS) $(OBJSB)
-	ar rcs $(NAME) $(OBJS) $(OBJSB)
+	make $(NAME) OBJS="$(OBJS) $(OBJSB)"
 
 clean:
 	rm -f $(OBJS) $(OBJSB)

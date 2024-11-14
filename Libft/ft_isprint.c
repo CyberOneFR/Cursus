@@ -6,11 +6,9 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:17:09 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 09:14:15 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:59:47 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isprint(int c)
 {

