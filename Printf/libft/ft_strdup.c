@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 13:23:06 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/15 05:18:44 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/06 14:45:29 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/13 10:25:10 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strdup(const char *s)
 {
-	void	*ptr;
-	size_t	i;
+	char	*str;
+	int		i;
 
 	i = 0;
-	if (nmemb < 0 || size < 0)
-		return (NULL);
-	if (nmemb > ((size_t)-1) / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr)
+	while (s[i])
+		i++;
+	str = malloc(i + 1 * sizeof(char));
+	if (!str)
+		return ((char *)0);
+	i = 0;
+	while (s[i])
 	{
-		while (i < (nmemb * size))
-		{
-			((char *)ptr)[i] = 0;
-			i++;
-		}
+		str[i] = s[i];
+		i++;
 	}
-	return (ptr);
+	str[i] = '\0';
+	return (str);
 }

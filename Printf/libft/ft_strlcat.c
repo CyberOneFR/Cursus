@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 13:23:06 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/15 05:18:44 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/05 22:02:31 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/15 03:03:40 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	void	*ptr;
 	size_t	i;
+	size_t	c;
 
-	i = 0;
-	if (nmemb < 0 || size < 0)
-		return (NULL);
-	if (nmemb > ((size_t)-1) / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr)
+	c = 0;
+	while (c < size && dst[c])
+		c++;
+	i = c;
+	while (i + 1 < size && src[i - c])
 	{
-		while (i < (nmemb * size))
-		{
-			((char *)ptr)[i] = 0;
-			i++;
-		}
+		dst[i] = src[i - c];
+		i++;
 	}
-	return (ptr);
+	if (size > 0 && c != i)
+		dst[i] = '\0';
+	while (src[i - c])
+		i++;
+	return (i);
 }

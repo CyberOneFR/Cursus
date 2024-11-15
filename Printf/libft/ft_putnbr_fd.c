@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 13:23:06 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/15 05:18:44 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/09 19:16:09 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/09 19:55:22 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	void	*ptr;
-	size_t	i;
+	int	nb;
+	int	len;
+	int	i;
 
-	i = 0;
-	if (nmemb < 0 || size < 0)
-		return (NULL);
-	if (nmemb > ((size_t)-1) / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr)
+	nb = n;
+	len = 0;
+	while (nb / 10 != 0)
 	{
-		while (i < (nmemb * size))
-		{
-			((char *)ptr)[i] = 0;
-			i++;
-		}
+		nb /= 10;
+		len++;
 	}
-	return (ptr);
+	len++;
+	if (n < 0)
+		write(fd, "-", 1);
+	while (--len >= 0)
+	{
+		i = 0;
+		nb = n;
+		while (i++ < len)
+			nb /= 10;
+		write(fd, &"9876543210123456789"[9 + (nb % 10)], 1);
+	}
 }

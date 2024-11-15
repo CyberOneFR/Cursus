@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 13:23:06 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/15 05:18:44 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/12 17:30:15 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/14 23:01:36 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	void	*ptr;
-	size_t	i;
+	t_list	*new_lst;
+	t_list	*new_elem;
+	void	*value;
 
-	i = 0;
-	if (nmemb < 0 || size < 0)
+	if (!lst || !f || !del)
 		return (NULL);
-	if (nmemb > ((size_t)-1) / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr)
+	while (lst)
 	{
-		while (i < (nmemb * size))
+		value = f(lst->content);
+		new_elem = ft_lstnew(value);
+		if (!new_elem)
 		{
-			((char *)ptr)[i] = 0;
-			i++;
+			del(value);
+			ft_lstclear(&new_lst, del);
+			return (0);
 		}
+		ft_lstadd_back(&new_lst, new_elem);
+		lst = lst->next;
 	}
-	return (ptr);
+	return (new_lst);
 }

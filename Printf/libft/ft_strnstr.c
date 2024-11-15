@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 13:23:06 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/15 05:18:44 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/06 01:03:44 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/08 01:33:49 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	void	*ptr;
 	size_t	i;
+	size_t	k;
 
 	i = 0;
-	if (nmemb < 0 || size < 0)
-		return (NULL);
-	if (nmemb > ((size_t)-1) / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr)
+	if (!little[0])
+		return ((char *)big);
+	while (big[i] && i < len)
 	{
-		while (i < (nmemb * size))
+		k = 0;
+		while (big[i + k] == little[k] && (i + k) < len)
 		{
-			((char *)ptr)[i] = 0;
-			i++;
+			if (!little[k + 1])
+				return ((char *)(big + i));
+			k++;
 		}
+		i++;
 	}
-	return (ptr);
+	return (0);
 }

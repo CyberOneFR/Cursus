@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 13:23:06 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/15 05:18:44 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/08 17:33:32 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/14 18:37:31 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_itoa(int n)
 {
-	void	*ptr;
-	size_t	i;
+	const char	*base = "9876543210123456789";
+	char		tmp[12];
+	char		*str;
+	int			i;
 
-	i = 0;
-	if (nmemb < 0 || size < 0)
-		return (NULL);
-	if (nmemb > ((size_t)-1) / size)
-		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr)
+	i = 12;
+	tmp[--i] = 0;
+	while (n != 0 || i == 11)
 	{
-		while (i < (nmemb * size))
-		{
-			((char *)ptr)[i] = 0;
-			i++;
-		}
+		tmp[--i] = base[(n % 10) + 9];
+		if (n < 0 && n > -10)
+			tmp[--i] = '-';
+		n /= 10;
 	}
-	return (ptr);
+	str = ft_strdup(&tmp[i]);
+	return (str);
 }
