@@ -6,30 +6,27 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 17:30:15 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/12 19:37:27 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/14 23:01:36 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_list	*ft_lstfnew(void *value, void *(*f)(void *));
-
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_lst;
 	t_list	*new_elem;
+	void	*value;
 
-	if (!lst)
-		return (0);
-	new_lst = ft_lstfnew(lst->content, f);
-	if (!new_lst)
-		return (0);
-	lst = lst->next;
+	if (!lst || !f || !del)
+		return (NULL);
 	while (lst)
 	{
-		new_elem = ft_lstfnew(lst->content, f);
+		value = f(lst->content);
+		new_elem = ft_lstnew(value);
 		if (!new_elem)
 		{
+			del(value);
 			ft_lstclear(&new_lst, del);
 			return (0);
 		}
@@ -37,16 +34,4 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		lst = lst->next;
 	}
 	return (new_lst);
-}
-
-static t_list	*ft_lstfnew(void *value, void *(*f)(void *))
-{
-	t_list	*new;
-
-	new = (t_list *) malloc(sizeof(t_list));
-	if (!new)
-		return (0);
-	new->content = f(value);
-	new->next = 0;
-	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:33:32 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/14 16:24:06 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/14 18:37:31 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,20 @@
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		temp;
-	int		len;
+	const char	*base = "9876543210123456789";
+	char		tmp[12];
+	char		*str;
+	int			i;
 
-	len = 0;
-	temp = n;
-	while (temp / 10 != 0)
+	i = 12;
+	tmp[--i] = 0;
+	while (n != 0 || i == 11)
 	{
-		temp /= 10;
-		len++;
-	}
-	len++;
-	str = (char *)malloc((len + 1 + (n < 0)) * sizeof(char));
-	if (!str)
-		return ((char *)0);
-	if (n < 0)
-		str[0] = '-';
-	str[len + (n < 0)] = '\0';
-	while (--len >= 0)
-	{
-		str[len + (n < 0)] = "9876543210123456789"[(n % 10) + 9];
+		tmp[--i] = base[(n % 10) + 9];
+		if (n < 0 && n > -10)
+			tmp[--i] = '-';
 		n /= 10;
 	}
+	str = ft_strdup(&tmp[i]);
 	return (str);
 }

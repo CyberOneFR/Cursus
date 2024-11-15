@@ -6,7 +6,7 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 19:37:57 by ethebaul          #+#    #+#              #
-#    Updated: 2024/11/14 16:20:53 by ethebaul         ###   ########.fr        #
+#    Updated: 2024/11/14 17:38:52 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ NAME = libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
