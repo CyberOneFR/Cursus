@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:47:24 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/14 19:16:14 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/16 16:14:24 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!lst)
-		return ;
 	while (*lst)
 		lst = &(*lst)->next;
 	*lst = new;

@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 05:14:02 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/15 05:26:48 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/16 15:05:45 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 # include "libft/libft.h"
 # include <stdarg.h>
 
-void		ft_putptr_fd(void *ptr, int fd);
-void		ft_putbase_fd(unsigned long long n, char *base, int fd);
-int			ft_printf(const char *format, ...);
-const char	*ft_option(const char *format, va_list ap);
+int	ft_printf(const char *format, ...);
+int	ft_option(const char *format, va_list ap);
+int ft_printchar_fd(int c, int fd);
+int	ft_printstr_fd(char *str, int fd);
+int	ft_printptr_fd(void *ptr, int fd);
+int	ft_printbase_fd(unsigned long long n, char *base, int fd);
 
 #endif
