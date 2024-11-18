@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 19:16:09 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/09 19:55:22 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:38:09 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int	nb;
-	int	len;
-	int	i;
+	int		nb;
+	size_t	len;
+	size_t	i;
 
 	nb = n;
 	len = 0;

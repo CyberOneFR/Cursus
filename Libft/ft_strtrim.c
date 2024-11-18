@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 01:54:26 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/08 04:19:43 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:41:11 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
+	size_t		i;
 
 	i = 0;
 	while (ft_strchr(set, *s1) && *s1)

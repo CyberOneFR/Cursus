@@ -6,13 +6,15 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 22:50:21 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/14 16:14:42 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:38:53 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

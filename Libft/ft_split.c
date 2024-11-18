@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 04:19:57 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/14 16:19:51 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:38:27 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	count_words(char const *s, char c)
 {
-	int	words;
-	int	i;
+	size_t	words;
+	size_t	i;
 
 	i = 0;
 	words = 0;

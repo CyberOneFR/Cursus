@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:45:29 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/13 10:25:10 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:39:05 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strdup(const char *s)
 {
 	char	*str;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

@@ -6,7 +6,7 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 19:37:57 by ethebaul          #+#    #+#              #
-#    Updated: 2024/11/14 17:38:52 by ethebaul         ###   ########.fr        #
+#    Updated: 2024/11/18 01:32:58 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,14 +56,13 @@ SRCSB = ft_lstnew_bonus.c \
 	ft_lstmap_bonus.c \
 
 OBJS = $(SRCS:.c=.o)
+DEPS = $(SRCS:.c=.d)
 OBJSB = $(SRCSB:.c=.o)
+DEPSB = $(SRCSB:.c=.d)
 
-INCLUDES = libft.h
-
-CFLAGS = -Wall -Wextra -Werror -fPIC
+CFLAGS = -Wall -Wextra -Werror -MD -MP
 
 CC = cc
-
 NAME = libft.a
 
 all: $(NAME)
@@ -72,13 +71,15 @@ $(NAME): $(OBJS) Makefile
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(OBJS) $(OBJSB)
-	make $(NAME) OBJS="$(OBJS) $(OBJSB)"
+-include $(DEPS) $(DEPSB)
+
+bonus: $(OBJS) $(OBJSB) Makefile
+	@make $(NAME) OBJS="$(OBJS) $(OBJSB)"
 
 clean:
-	rm -f $(OBJS) $(OBJSB)
+	rm -f $(OBJS) $(OBJSB) $(DEPS) $(DEPSB)
 
 fclean: clean
 	rm -f $(NAME)

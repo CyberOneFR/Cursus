@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:45:17 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/12 17:33:17 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:36:53 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int		i;
+	size_t		i;
 
 	i = 0;
 	while (lst)

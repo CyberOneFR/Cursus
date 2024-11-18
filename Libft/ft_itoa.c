@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:33:32 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/14 18:37:31 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:36:17 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_itoa(int n)
 	const char	*base = "9876543210123456789";
 	char		tmp[12];
 	char		*str;
-	int			i;
+	size_t		i;
 
 	i = 12;
 	tmp[--i] = 0;

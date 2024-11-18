@@ -1,0 +1,10 @@
+{
+	"files.associations": {
+		"minirt.h": "c",
+		"mlx.h": "c",
+		"signal.h": "c",
+		"stdlib.h": "c",
+		"unistd.h": "c",
+		"stdio.h": "c"
+	}
+}
