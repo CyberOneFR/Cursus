@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 04:19:57 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/18 01:38:27 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:52:44 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char	*get_word(char **tab, char const *s, char c)
 	word = (char *)malloc((i + 1) * sizeof(char));
 	*tab = word;
 	if (!word)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (s[i] != c && s[i])
 	{
@@ -74,11 +74,11 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	words = count_words(s, c);
 	tab = malloc((words + 1) * sizeof(char *));
 	if (!tab)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (i < words)
 	{
@@ -86,7 +86,7 @@ char	**ft_split(char const *s, char c)
 		if (!tab[i])
 		{
 			free_tab(tab, i);
-			return (0);
+			return (NULL);
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 17:30:15 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/16 17:07:51 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:50:16 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	new = 0;
 	if (!lst || !f || !del)
-		return (0);
+		return (NULL);
 	while (lst)
 	{
 		value = f(lst->content);
@@ -29,7 +29,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		{
 			del(value);
 			ft_lstclear(&new, del);
-			return (0);
+			return (NULL);
 		}
 		ft_lstadd_back(&new, elem);
 		lst = lst->next;

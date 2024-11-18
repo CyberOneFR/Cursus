@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:45:29 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/18 01:39:05 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:49:50 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s)
 		i++;
 	str = malloc(i + 1 * sizeof(char));
 	if (!str)
-		return ((char *)0);
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{

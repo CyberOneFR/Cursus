@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 00:51:31 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/16 15:18:51 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:51:01 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((void *)(s + i));
 		i++;
 	}
-	return (0);
+	return (NULL);
 }

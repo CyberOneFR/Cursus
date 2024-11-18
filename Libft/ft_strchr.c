@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 22:50:21 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/18 01:38:53 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:52:50 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (s[i] == (char) c)
 		return ((char *)(s + i));
-	return (0);
+	return (NULL);
 }

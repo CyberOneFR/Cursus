@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:50:13 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/18 01:40:43 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/18 01:53:29 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		i++;
 	str = (char *)malloc((i + 1) * sizeof(char));
 	if (!str)
-		return ((char *)0);
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{
