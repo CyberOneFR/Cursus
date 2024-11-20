@@ -6,7 +6,7 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 19:37:57 by ethebaul          #+#    #+#              #
-#    Updated: 2024/11/20 01:39:18 by ethebaul         ###   ########.fr        #
+#    Updated: 2024/11/20 04:15:31 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS = ft_printf.c \
 OBJS = $(SRCS:.c=.o)
 DEPS = $(SRCS:.c=.d)
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -MD -MP
 
 CC = cc
 
@@ -31,16 +31,21 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT) Makefile
 	ar rcs $(NAME) $(OBJS) $(LIBFT)
 
+$(LIBFT):
+	make -C ./libft
+
 %.o: %.c
 	$(CC) $(CFLAGS) -I $(HEADERS) -c $< -o $@
 
 -include $(DEPS)
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(DEPS)
+	make -C ./libft clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C ./libft fclean
 
 re: fclean all
 
