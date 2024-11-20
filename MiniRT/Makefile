@@ -6,20 +6,21 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 19:37:57 by ethebaul          #+#    #+#              #
-#    Updated: 2024/11/16 18:16:46 by ethebaul         ###   ########.fr        #
+#    Updated: 2024/11/19 22:03:55 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = main.c
 
 OBJS = $(SRCS:.c=.o)
+DEPS = $(SRCS:.c=.d)
 
 HEADERS = ./headers/
 
-LIBS = ./mlx_linux/libmlx.a -lXext -lX11 -lm -lbsd -L./libft -lXext -lX11 -lm
+LIBS = ./mlx_linux/libmlx.a -lbsd -lXext -lX11 -lm
 
 
-CFLAGS = -Wall -Wextra -Werror -fPIC
+CFLAGS = -MD -MP
 
 CC = cc
 
@@ -33,8 +34,10 @@ $(NAME): $(OBJS) Makefile
 %.o: %.c
 	$(CC) $(CFLAGS) -I $(HEADERS) -c $< -o $@
 
+-include $(DEPS)
+
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(DEPS)
 
 fclean: clean
 	rm -f $(NAME)

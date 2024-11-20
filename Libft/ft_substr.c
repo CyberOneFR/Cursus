@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:25:03 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/18 01:54:10 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:00:46 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!sub)
 		return (NULL);
 	i = 0;
-	while (i < (int)len && s[start + i])
+	while (i < len && s[start + i])
 	{
 		sub[i] = s[start + i];
 		i++;

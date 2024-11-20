@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:56:45 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/18 01:37:35 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/19 17:59:44 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	size_t	i;
 
 	i = 0;
-	while (i < (int)n)
+	while (i < n)
 	{
 		((char *)s)[i] = c;
 		i++;

@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"xlib.h": "c",
+		"fb.h": "c",
+		"fcntl.h": "c",
+		"ioctl.h": "c"
+	}
+}

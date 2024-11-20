@@ -10,6 +10,7 @@
 		"random": "c",
 		"string.h": "c",
 		"ioctl.h": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"ft_printf.h": "c"
 	}
 }

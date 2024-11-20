@@ -6,7 +6,7 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 19:37:57 by ethebaul          #+#    #+#              #
-#    Updated: 2024/11/18 01:32:58 by ethebaul         ###   ########.fr        #
+#    Updated: 2024/11/20 01:34:15 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ DEPSB = $(SRCSB:.c=.d)
 CFLAGS = -Wall -Wextra -Werror -MD -MP
 
 CC = cc
+
 NAME = libft.a
 
 all: $(NAME)
@@ -76,7 +77,7 @@ $(NAME): $(OBJS) Makefile
 -include $(DEPS) $(DEPSB)
 
 bonus: $(OBJS) $(OBJSB) Makefile
-	@make $(NAME) OBJS="$(OBJS) $(OBJSB)"
+	make $(NAME) OBJS="$(OBJS) $(OBJSB)"
 
 clean:
 	rm -f $(OBJS) $(OBJSB) $(DEPS) $(DEPSB)

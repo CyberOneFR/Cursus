@@ -6,7 +6,7 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 19:37:57 by ethebaul          #+#    #+#              #
-#    Updated: 2024/11/15 05:30:12 by ethebaul         ###   ########.fr        #
+#    Updated: 2024/11/20 01:39:18 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,37 +14,33 @@ SRCS = ft_printf.c \
 	ft_putargs_fd.c \
 
 OBJS = $(SRCS:.c=.o)
+DEPS = $(SRCS:.c=.d)
 
-INCLUDES = libftprintf.h
-
-CFLAGS = -Wall -Wextra -Werror -fPIC
+CFLAGS = -Wall -Wextra -Werror
 
 CC = cc
 
 NAME = libftprintf.a
 
-LIBFT_DIR = libft
+HEADERS = ./headers/
 
-LIBFT = $(LIBFT_DIR)/libft.a
+LIBFT = ./libft/libft.a
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) Makefile
 	ar rcs $(NAME) $(OBJS) $(LIBFT)
 
-$(LIBFT):
-	make -C libft
-
 %.o: %.c
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(HEADERS) -c $< -o $@
+
+-include $(DEPS)
 
 clean:
 	rm -f $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 18:58:11 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/14 16:03:43 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/20 00:48:32 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/20 01:15:22 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <SDL2/SDL.h>
 
-void	ft_putchar_fd(char c, int fd)
+int	main(int argc, char **argv)
 {
-	write(fd, &c, 1);
+	SDL_Window		*win;
+	SDL_Renderer	*ren;
+	SDL_Event		event;
+	int				quit;
+
+	if (SDL_Init(SDL_INIT_VIDEO))
+	{
+		SDL_Log("Error: %s\n", SDL_GetError());
+		return (EXIT_FAILURE);
+	}
+	SDL_Quit();
+	return (EXIT_SUCCESS);
 }
