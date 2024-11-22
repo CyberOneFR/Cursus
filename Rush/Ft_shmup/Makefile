@@ -6,32 +6,38 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 19:37:57 by ethebaul          #+#    #+#              #
-#    Updated: 2024/11/21 19:25:39 by ethebaul         ###   ########.fr        #
+#    Updated: 2024/11/23 00:24:37 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c
+HEADERS = ./headers/
+SRCS =	./shmup.c \
+		./shmup_client.c \
+		./shmup_server.c \
+		./base64/base64.c \
+		./websocket/websocket.c
 
 OBJS = $(SRCS:.c=.o)
-
-CFLAGS = -Wall -Wextra -Werror
+DEPS = $(SRCS:.c=.d)
 
 CC = cc
+CFLAGS = -Wall -Wextra -Werror -MD -MP
 
-NAME = Graphics.exe
-
-HEADERS = ./headers/
+NAME = ft_shmup.exe
 
 all: $(NAME)
 
 $(NAME): $(OBJS) Makefile
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	ar rcs $(NAME) $(OBJS) $(LIBFT)
+	@make clean
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I $(HEADERS) -c $< -o $@
 
+-include $(DEPS)
+
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(DEPS)
 
 fclean: clean
 	rm -f $(NAME)

@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 17:21:24 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/19 23:36:55 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/21 19:05:26 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 # include <math.h>
 # include <complex.h>
 
-# define THREADS 6
-# define WIDTH 1280
+# define THREADS 4
+# define WIDTH 1920
 # define RWIDTH 0.00052083333
-# define HEIGHT	720
+# define HEIGHT	1080
 # define RHEIGHT 0.00092592592
 # define PI 3.14159265359
 

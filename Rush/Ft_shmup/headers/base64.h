@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   base64.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 00:48:32 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/21 19:26:37 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/23 00:21:11 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/23 00:38:44 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_graphics.h"
+#ifndef BASE64_H
+# define BASE64_H
 
-int	main(int argc, char **argv)
-{
-	t_app			t_app;
+# include <stdlib.h>
+# include <string.h>
 
-	(void)argc;
-	(void)argv;
-	if (SDL_Init(SDL_INIT_VIDEO))
-	{
-		SDL_Log("Error: %s\n", SDL_GetError());
-		return (EXIT_FAILURE);
-	}
-	t_app.window = SDL_CreateWindow("Graphics", 0, 0, WIDTH, HEIGHT, 0);
-	if (!t_app.window)
-	{
-		printf("Error window: %s\n", SDL_GetError());
-		exit(1);
-	}
-	SDL_Quit();
-	return (EXIT_SUCCESS);
-}
+int	base64_encode(unsigned char *src, int srclen, char *dst);
+int	base64_decode(unsigned char *src, int srclen, char *dst);
+
+#endif

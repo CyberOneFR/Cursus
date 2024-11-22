@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:02:59 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/20 00:28:42 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/21 19:06:03 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,15 +143,15 @@ unsigned int	get_color(double x, double y, double dx, double dy, double factor)
 	x -= (WIDTH * 0.5) + dx;
 	y -= (HEIGHT * 0.5) + dy;
 	c = ((x / (HEIGHT * 0.5 * factor)) + ((y / (HEIGHT * 0.5 * factor)) * I));
-	while (iter < 256)
+	while (iter < 128)
 	{
 		z = (z * z) + c;
 		if (cabs(z) > 2)
 			break ;
 		iter++;
 	}
-	r = (unsigned char)(iter & 255);
-	g = (unsigned char)((iter * 2) & 255);
-	b = (unsigned char)((iter * 3) & 255);
+	r = (unsigned char)((iter * 2) & 255);
+	g = (unsigned char)((iter * 2 * 2) & 255);
+	b = (unsigned char)((iter * 4 * 2) & 255);
 	return ((r << 16) | (g << 8) | b);
 }
