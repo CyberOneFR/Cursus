@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shmup_render.c                                     :+:      :+:    :+:   */
+/*   text_draw.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 03:42:31 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/23 05:39:28 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/23 05:15:02 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/23 06:25:41 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shmup.h"
 
-void	shmup_render(t_env *env)
+void	text_draw(t_element *element)
 {
-	t_element	*iterator;
-
-	iterator = env->context->elements;
-	while (iterator)
-	{
-		render_draw(iterator);
-		iterator = iterator->next;
-	}
-}
-
-void	render_draw(t_element *element)
-{
-	move(element->p1.x, element->p1.y);
-	attron(COLOR_PAIR(element->color));
-	attron(element->attr);
-	addch(element->c);
-	attroff(element->attr);
-	attroff(COLOR_PAIR(element->color));
+	move(element->p1.y, element->p1.x);
+	addstr((char *)element->data);
 }

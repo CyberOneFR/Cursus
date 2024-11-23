@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   element_init.c                                     :+:      :+:    :+:   */
+/*   fill.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 05:17:27 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/23 06:26:13 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/23 05:46:41 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/23 05:47:25 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shmup.h"
 
-t_element	*element_init(void)
+void	fill(t_point p1, t_point p2, char c)
 {
-	t_element	*element;
+	int	x;
+	int	y;
 
-	element = malloc(sizeof(t_element));
-	if (!element)
-		return (NULL);
-	element->p1.x = 0;
-	element->p1.y = 0;
-	element->p2.x = 0;
-	element->p2.y = 0;
-	element->c = '\0';
-	element->data = 0;
-	element->render = 0;
-	element->attr = 0;
-	element->color = 0;
-	element->action = 0;
-	element->next = 0;
-	return (element);
+	y = p1.y;
+	while (y <= p2.y)
+	{
+		x = p1.x;
+		while (x <= p2.x)
+		{
+			draw(x, y, c);
+			x++;
+		}
+		y++;
+	}
 }

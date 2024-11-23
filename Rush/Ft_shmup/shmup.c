@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 22:01:28 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/23 05:39:35 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/23 05:51:23 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(void)
 	while (env.quit)
 	{
 		shmup_update(&env);
-		shmup_render(&env);
+		render_context(&env);
 	}
 	endwin();
 	return (0);
