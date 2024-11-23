@@ -6,7 +6,7 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 03:42:31 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/23 04:49:51 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/23 05:39:28 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	shmup_render(t_env *env)
 {
-	t_elements	*iterator;
+	t_element	*iterator;
 
 	iterator = env->context->elements;
 	while (iterator)
@@ -24,7 +24,7 @@ void	shmup_render(t_env *env)
 	}
 }
 
-void	render_draw(t_elements *element)
+void	render_draw(t_element *element)
 {
 	move(element->p1.x, element->p1.y);
 	attron(COLOR_PAIR(element->color));

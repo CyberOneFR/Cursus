@@ -6,20 +6,19 @@
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 22:01:28 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/23 05:20:01 by ethebaul         ###   ########.fr       */
+/*   Updated: 2024/11/23 05:39:35 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shmup.h"
 
-int	main(int ac, char **av)
+int	main(void)
 {
 	t_env	env;
 
 	env.win = initscr();
-	env.height = 20;
-	env.width = 20;
-	env.context = 0;
+	env.height = 100;
+	env.width = 100;
 	env.quit = 1;
 	env.context = shmup_init();
 	if (!env.context)
@@ -34,8 +33,6 @@ int	main(int ac, char **av)
 		shmup_render(&env);
 	}
 	endwin();
-	(void)ac;
-	(void)av;
 	return (0);
 }
 

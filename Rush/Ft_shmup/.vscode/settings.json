@@ -4,6 +4,20 @@
 		"shmup.h": "c",
 		"cerrno": "c",
 		"ncurses.h": "c",
-		"internet": "c"
+		"internet": "c",
+		"array": "c",
+		"string": "c",
+		"buffer": "c",
+		"socket": "c",
+		"string_view": "c",
+		"ranges": "c",
+		"span": "c",
+		"deque": "c",
+		"forward_list": "c",
+		"list": "c",
+		"unordered_map": "c",
+		"vector": "c",
+		"io_context": "c",
+		"initializer_list": "c"
 	}
 }
