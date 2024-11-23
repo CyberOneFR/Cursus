@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   base64.h                                           :+:      :+:    :+:   */
+/*   shmup_server.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 00:21:11 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/23 00:53:47 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/22 21:36:46 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/23 03:34:33 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE64_H
-# define BASE64_H
+#include "shmup.h"
 
-# include <stdlib.h>
-# include <string.h>
+int	shmup_server(t_env *env)
+{
+	time_t	t;
 
-int	base64_encode(unsigned char *src, int srclen, char *dst);
-int	base64_decode(unsigned char *src, int srclen, char *dst);
-
-#endif
+	time(t);
+	return (0);
+}

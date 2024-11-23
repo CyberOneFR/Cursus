@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   base64.h                                           :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 00:21:11 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/11/23 00:53:47 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/23 03:48:16 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/11/23 05:19:19 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE64_H
-# define BASE64_H
+#include "shmup.h"
 
-# include <stdlib.h>
-# include <string.h>
-
-int	base64_encode(unsigned char *src, int srclen, char *dst);
-int	base64_decode(unsigned char *src, int srclen, char *dst);
-
-#endif
+void	draw(int x, int y, char c)
+{
+	move(x, y);
+	addch(c);
+}

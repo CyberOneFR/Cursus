@@ -6,30 +6,26 @@
 #    By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 19:37:57 by ethebaul          #+#    #+#              #
-#    Updated: 2024/11/23 00:24:37 by ethebaul         ###   ########.fr        #
+#    Updated: 2024/11/23 03:47:16 by ethebaul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 HEADERS = ./headers/
 SRCS =	./shmup.c \
-		./shmup_client.c \
-		./shmup_server.c \
-		./base64/base64.c \
-		./websocket/websocket.c
 
 OBJS = $(SRCS:.c=.o)
 DEPS = $(SRCS:.c=.d)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -MD -MP
+LIB = -lncurses
 
-NAME = ft_shmup.exe
+NAME = shmup.exe
 
 all: $(NAME)
 
 $(NAME): $(OBJS) Makefile
-	ar rcs $(NAME) $(OBJS) $(LIBFT)
-	@make clean
+	$(CC) $(CFLAGS) $(LIB) -I $(HEADERS) $(OBJS) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I $(HEADERS) -c $< -o $@
