@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_iota.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 15:14:14 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/12/11 15:59:46 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/12/17 16:34:32 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/12/17 16:34:39 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf.h"
-#include <stdio.h>
+#include "push_swap.h"
 
-int	main(void)
+char	*ft_itoa(int n)
 {
-	char format[] = "Hello%cK";
-	char *str = "World!";
+	const char	*base = "9876543210123456789";
+	char		tmp[12];
+	char		*str;
+	size_t		i;
 
-	ft_printf(format, str);
-	printf("\n");
-	printf(format, str);
-	return (0);
+	i = 12;
+	tmp[--i] = 0;
+	while (n != 0 || i == 11)
+	{
+		tmp[--i] = base[(n % 10) + 9];
+		if (n < 0 && n > -10)
+			tmp[--i] = '-';
+		n /= 10;
+	}
+	str = ft_strdup(&tmp[i]);
+	return (str);
 }

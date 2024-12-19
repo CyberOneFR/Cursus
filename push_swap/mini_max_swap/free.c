@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 15:14:14 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/12/11 15:59:46 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/12/18 00:13:49 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/12/18 00:13:55 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf.h"
-#include <stdio.h>
+#include "push_swap.h"
 
-int	main(void)
+void	free_stack(t_stack *pile)
 {
-	char format[] = "Hello%cK";
-	char *str = "World!";
-
-	ft_printf(format, str);
-	printf("\n");
-	printf(format, str);
-	return (0);
+	free(pile->stack);
+	free(pile);
 }

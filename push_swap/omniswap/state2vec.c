@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   state2vec.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 15:14:14 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/12/11 15:59:46 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/12/19 16:05:43 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/12/19 16:08:27 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf.h"
-#include <stdio.h>
+#include "trainer.h"
 
-int	main(void)
+int	*state2vec(t_state *state)
 {
-	char format[] = "Hello%cK";
-	char *str = "World!";
+	int	vec[7];
 
-	ft_printf(format, str);
-	printf("\n");
-	printf(format, str);
-	return (0);
+	vec[0] = state->a->capacity;
+	vec[1] = state->a->size;
+	vec[2] = state->b->size;
+	vec[3] = entropy(state->a->stack, state->a->size);
+	return (vec);
 }

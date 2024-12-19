@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 15:14:14 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/12/11 15:59:46 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/12/18 08:01:09 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/12/18 08:12:44 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf.h"
-#include <stdio.h>
+#include "push_swap.h"
 
-int	main(void)
+int	swap(t_stack *pile)
 {
-	char format[] = "Hello%cK";
-	char *str = "World!";
+	int	tmp;
 
-	ft_printf(format, str);
-	printf("\n");
-	printf(format, str);
+	if (pile->size < 2)
+		return (1);
+	tmp = pile->stack[0];
+	pile->stack[0] = pile->stack[1];
+	pile->stack[1] = tmp;
 	return (0);
 }

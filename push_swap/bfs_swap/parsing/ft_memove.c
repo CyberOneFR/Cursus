@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memove.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 15:14:14 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/12/11 15:59:46 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/11/04 18:24:40 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/12/18 12:38:44 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf.h"
-#include <stdio.h>
+#include "push_swap.h"
 
-int	main(void)
+void	*ft_memove(void *dest, const void *src, size_t n)
 {
-	char format[] = "Hello%cK";
-	char *str = "World!";
+	size_t	i;
 
-	ft_printf(format, str);
-	printf("\n");
-	printf(format, str);
-	return (0);
+	i = 0;
+	if (dest >= src)
+	{
+		while (i < n && (dest || src))
+		{
+			((char *)dest)[n - i - 1] = ((char *)src)[n - i - 1];
+			i++;
+		}
+	}
+	else
+	{
+		while (i < n && (dest || src))
+		{
+			((char *)dest)[i] = ((char *)src)[i];
+			i++;
+		}
+	}
+	return (dest);
 }

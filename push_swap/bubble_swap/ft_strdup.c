@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   strdup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 15:14:14 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/12/11 15:59:46 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/12/17 19:41:46 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/12/17 19:41:53 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf.h"
-#include <stdio.h>
+#include "push_swap.h"
 
-int	main(void)
+char	*ft_strdup(const char *s)
 {
-	char format[] = "Hello%cK";
-	char *str = "World!";
+	char	*str;
+	size_t	i;
 
-	ft_printf(format, str);
-	printf("\n");
-	printf(format, str);
-	return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	str = malloc(i + 1 * sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

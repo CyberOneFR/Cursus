@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   stack_dup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 15:14:14 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/12/11 15:59:46 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/12/18 04:06:20 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/12/18 04:06:40 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf.h"
-#include <stdio.h>
+#include "push_swap.h"
 
-int	main(void)
+t_stack	*stack_dup(t_stack *pile)
 {
-	char format[] = "Hello%cK";
-	char *str = "World!";
+	t_stack	*new;
+	int		i;
 
-	ft_printf(format, str);
-	printf("\n");
-	printf(format, str);
-	return (0);
+	new = malloc(sizeof(t_stack));
+	new->stack = ft_calloc(pile->size, sizeof(int));
+	new->size = pile->size;
+	i = 0;
+	while (i < pile->size)
+	{
+		new->stack[i] = pile->stack[i];
+		i++;
+	}
+	return (new);
 }

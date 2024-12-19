@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 15:14:14 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/12/11 15:59:46 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/12/17 17:27:10 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/12/18 06:53:56 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf.h"
-#include <stdio.h>
+#include "push_swap.h"
 
-int	main(void)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char format[] = "Hello%cK";
-	char *str = "World!";
+	void	*ptr;
+	size_t	i;
 
-	ft_printf(format, str);
-	printf("\n");
-	printf(format, str);
-	return (0);
+	i = 0;
+	if (!nmemb || !size)
+		return (malloc(0));
+	if (nmemb > ((size_t)-1) / size)
+		return (NULL);
+	ptr = malloc(nmemb * size);
+	if (ptr)
+	{
+		while (i < (nmemb * size))
+		{
+			((char *)ptr)[i] = 0;
+			i++;
+		}
+	}
+	return (ptr);
 }

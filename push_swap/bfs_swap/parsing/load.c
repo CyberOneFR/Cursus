@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ethebaul <ethebaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/27 15:14:14 by ethebaul          #+#    #+#             */
-/*   Updated: 2024/12/11 15:59:46 by ethebaul         ###   ########.fr       */
+/*   Created: 2024/12/17 22:19:19 by ethebaul          #+#    #+#             */
+/*   Updated: 2024/12/18 09:25:06 by ethebaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./headers/ft_printf.h"
-#include <stdio.h>
+#include "push_swap.h"
 
-int	main(void)
+t_stack	*stack_load(int size, char **elements)
 {
-	char format[] = "Hello%cK";
-	char *str = "World!";
+	t_stack	*pile_a;
+	int		i;
 
-	ft_printf(format, str);
-	printf("\n");
-	printf(format, str);
-	return (0);
+	pile_a = malloc(sizeof(t_stack));
+	pile_a->stack = ft_calloc(size, sizeof(int));
+	pile_a->capacity = size;
+	pile_a->size = size;
+	i = 0;
+	while (i < pile_a->size)
+	{
+		pile_a->stack[i] = ft_atoi(elements[i]);
+		i++;
+	}
+	return (pile_a);
 }
