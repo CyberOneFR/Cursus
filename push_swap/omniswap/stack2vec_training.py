@@ -16,7 +16,7 @@ def generate_state(max_size, max_value):
 
 def targeted_state(state):
 	A, B = state
-	A = np.concatenate((A, B))
+	A = [*A, *B]
 	A.sort()
 	B = []
 	return (A, B)
@@ -43,24 +43,30 @@ def apply_operation(state, op):
         B = [B[-1]] + B[:-1]
     return (A, B)
 
+def compare_states(state1, state2):
+    if len(state1) != len(state2):
+        return False
+    
+    for i in range(len(state1)):
+        if not np.array_equal(state1[i], state2[i]):
+            return False
+    return True
+
 def calculate_min_instructions(state):
 	target_state = targeted_state(state)
 	visited = set()
 	queue = deque([(state, 0)])
 	while queue:
 		current_state, depth = queue.popleft()
-		target_key = (tuple(target_state[0]), tuple(target_state[1]))
-		current_state_key = (tuple(current_state[0]), tuple(current_state[1]))
-		if current_state_key == target_key:
+		if compare_states(current_state, target_state):
 			return depth
-		if current_state_key in visited:
+		if current_state in visited:
 			continue
-		visited.add(current_state_key)
+		visited.add(current_state)
 
 		for op in ['sa', 'sb', 'pa', 'pb', 'ra', 'rb', 'rra', 'rrb']:
 			next_state = apply_operation(current_state, op)
-			next_state_key = (tuple(next_state[0]), tuple(next_state[1]))
-			if next_state_key not in visited:
+			if next_state not in visited:
 				queue.append((next_state, depth + 1))
 	return float('inf')
 
